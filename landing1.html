@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="style1.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<div class="header">
+        <input type="text" class="search-bar" placeholder="Search...">
+      </div>
+<nav class="vertical-menu-wrapper">
+    <div class="vertical-menu-logo">
+      <div>LOGO</div>
+      <span class="open-menu-btn"><hr><hr><hr></span>
+    </div>
+    <ul class="vertical-menu">
+            <li data-page="home.html">Home</li>
+            <li data-page="accounts.html">Accounts</li>
+            <li data-page="manufacturing.html">Manufacturing</li>
+            <li data-page="learning.html">Learning</li>
+            <li data-page="leadership.html">Leadership</li>
+            <li data-page="contact.html">Contact Us</li>
+    </ul>
+  </nav>
+  <div class="content-wrapper">
+    <div class="content" >
+    </div>
+  </div>
+  <script>
+        $(document).ready(function() {
+          $('.content').load('home.html');
+          $('body').toggleClass('closed-menu');
+        });
+        </script>
+
+  <script>
+  $('.open-menu-btn').on('click', function() {
+      $('body').toggleClass('closed-menu');
+    });
+
+    $('.vertical-menu li').on('click', function() {
+      var page = $(this).data('page');
+      $('.content').load(page);
+      $('body').toggleClass('closed-menu');
+    });
+  </script>
